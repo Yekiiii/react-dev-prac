@@ -19,3 +19,14 @@
   height: 90px;
 }
 
+#ttt-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  
+}
+
+.square{
+  height: 50px;
+  width: 50px;
+}

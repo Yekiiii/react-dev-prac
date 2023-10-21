@@ -119,16 +119,43 @@ function App() {
 }
 */                   //State BUTTON INCREMENT //State BUTTON INCREMENT //State BUTTON INCREMENT
 
+function Square({value, onSquareClick}){
+
+  return(
+    <button className='square' onClick={onSquareClick}>{value}</button>
+  );
+}
+
 
 function App() {
   
+  const [squares, setSquares]=useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext]=useState(true);
   
-  
-
+  function handleClick(i){
+    const nextSquares= squares.slice();
+    if(xIsNext){
+    nextSquares[i] ="X";}
+    else{
+      nextSquares[i]="O"
+    }
+    setSquares(nextSquares);
+    setXIsNext(!xIsNext);
+  }
   return (
     <div className="App">
       <div className="App-header">
-      
+        <div id="ttt-grid"> 
+          <Square onSquareClick={()=>handleClick(0)} value={squares[0]}/>
+          <Square onSquareClick={()=>handleClick(1)} value={squares[1]}/>
+          <Square onSquareClick={()=>handleClick(2)} value={squares[2]}/>
+          <Square onSquareClick={()=>handleClick(3)} value={squares[3]}/>
+          <Square onSquareClick={()=>handleClick(4)} value={squares[4]}/>
+          <Square onSquareClick={()=>handleClick(5)} value={squares[5]}/>
+          <Square onSquareClick={()=>handleClick(6)} value={squares[6]}/>
+          <Square onSquareClick={()=>handleClick(7)} value={squares[7]}/>
+          <Square onSquareClick={()=>handleClick(8)} value={squares[8]}/>
+        </div>
       </div>
     </div>
   );
